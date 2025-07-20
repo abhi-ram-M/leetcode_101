@@ -11,8 +11,7 @@ class Solution:
                 while x+1 in set_nums:
                     count += 1
                     x += 1
-                if count > longest:
-                    longest = count
+                longest = max(longest,count)
         return longest
 
 
