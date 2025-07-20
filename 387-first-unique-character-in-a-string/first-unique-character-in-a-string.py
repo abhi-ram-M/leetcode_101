@@ -1,7 +1,5 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        if len(s) == 1:
-            return 0
         mapp = {}
         for ch in s:
             mapp[ch] = mapp.get(ch,0)+1
