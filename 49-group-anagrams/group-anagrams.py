@@ -1,15 +1,14 @@
+from collections import defaultdict
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        result = []
-        mapp = {}
-        for k in strs:
-            
-            s = ''.join(sorted(k))
-            if s in mapp:
-                mapp[s].append(k)
-            else:
-                mapp[s] = [k]
-        return list(mapp.values())
+        dic = defaultdict(list)
+        for word in strs:
+            lst = [0]*26
+            for char in word:
+                lst[ord(char)-ord('a')] += 1
+            lst = tuple(lst)
+            dic[lst].append(word)
+        return list(dic.values())
 
 
 
