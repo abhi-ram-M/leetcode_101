@@ -3,11 +3,14 @@ class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         dic = defaultdict(list)
         for k in strs:
-            s = ''.join(sorted(k))
-            if s in dic:
-                dic[s].append(k)
+            a = [0]*26
+            for m in k:
+                a[ord(m)- ord('a')] += 1
+            a = tuple(a)
+            if a in dic:
+                dic[a].append(k)
             else:
-                dic[s] = [k]
+                dic[a] = [k]
         return list(dic.values())
 
 
