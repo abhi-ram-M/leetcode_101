@@ -1,11 +1,16 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        mapp = {}
+        m_e = None
+        c = 0
         for i in nums:
-            mapp[i] = mapp.get(i,0)+1
-        for key,val in mapp.items():
-            if val >= (len(nums)/2):
-                return key
-
+            if c == 0:
+                c = 1
+                m_e = i
+            else:
+                if m_e == i:
+                    c += 1
+                else:
+                    c -= 1
+        return m_e
 
         
