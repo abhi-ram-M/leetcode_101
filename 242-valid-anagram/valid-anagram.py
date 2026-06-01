@@ -1,16 +1,19 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
-            return False
         mapp = {}
-        for a in s:
-            mapp[a] = mapp.get(a,0)+1
-        for k in t:
-            if k not in mapp:
-                return False
-            mapp[k] = mapp[k]-1
-            if mapp[k] < 0:
-                return False
-        return True
+        for i in range(2):
+            if i == 0:
+                k=s
+            else:
+                k=t
+            kk = [0]*26
+            for i in k:
+                kk[ord(i)-ord('a')] += 1
+            mapp[k] = kk
+        if mapp[s] == mapp[t]:
+            return True
+        else:
+            return False 
+
 
 
