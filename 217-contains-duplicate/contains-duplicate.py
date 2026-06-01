@@ -3,10 +3,11 @@ class Solution:
         n = len(nums)
         if 1 <= n <= 10**5:
             mapp = {}
-            for n in nums:
-                if n in mapp:
+            for i in range(n):
+                if nums[i] in mapp:
                     return True
-                mapp[n] = mapp.get(n,0)+1
+                mapp[nums[i]] = mapp.get(nums[i],0)+1
             return False
+            
 
         
