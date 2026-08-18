@@ -1,9 +1,13 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    return [i, j]
+        n = len(nums)
+        if n >= 2 or n < 10**4:
+            mapp = {}
+            for ind,num in enumerate(nums):
+                k = target-num
+                if k in mapp:
+                    return ind,mapp[k]
+                mapp[num] = ind
 
 
 
