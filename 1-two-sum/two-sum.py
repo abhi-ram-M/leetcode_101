@@ -3,10 +3,13 @@ class Solution:
         n = len(nums)
         if n >= 2 or n < 10**4:
             mapp = {}
-            for ind,val in enumerate(nums):
-                k = target - val
+            for ind,num in enumerate(nums):
+                k = target-num
                 if k in mapp:
-                    return [ind,mapp[k]]
-                mapp[val] = ind
+                    return ind,mapp[k]
+                mapp[num] = ind
+
+
+
 
 
